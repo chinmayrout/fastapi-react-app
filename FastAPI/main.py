@@ -18,6 +18,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True,
 )
 
 # Pydantic model to validate data from React Application
@@ -58,7 +59,7 @@ async def create_transaction(transaction: TransactionBase, db: db_dependency):
     return db_transaction
 
 
-@app.get('/transactions', response_model=List[TransactionModel])
+@app.get('/transactions/', response_model=List[TransactionModel])
 async def read_transactions(db: db_dependency, skip: int = 0, limit: int = 100):
     transactions = db.query(models.Transaction).offset(skip).limit(limit).all()
     return transactions

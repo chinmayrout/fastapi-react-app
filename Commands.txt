@@ -1,0 +1,18 @@
+# On fastAPI-react-app
+python3 -m venv env
+source env/bin/activate     # To activate virtual environment
+
+# In the activated  virtual environment, install fastapi, uvicorn and sqlalchemy
+pip install fastapi uvicorn sqlalchemy
+
+
+
+# To access API endpoints - 
+https://localhost:8000/docs
+
+
+
+# In React Folder
+npx create-react-app finance-app
+
+
